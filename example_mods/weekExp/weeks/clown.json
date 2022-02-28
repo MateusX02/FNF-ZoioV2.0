@@ -1,0 +1,48 @@
+{
+	"storyName": "E O ZOIO MERMAO",
+	"hideFreeplay": false,
+	"weekBackground": "",
+	"weekBefore": "tutorial",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"startUnlocked": true,
+	"weekCharacters": [
+		"MenuTricky",
+		"bf",
+		"gf"
+	],
+	"songs": [
+		[
+			"Cigarro-Outset",
+			"trickymask",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"Alekness",
+			"tricky",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"Hellek",
+			"helltricky",
+			[
+				146,
+				113,
+				253
+			]
+		]
+	],
+	"hideStoryMode": false,
+	"weekName": "E O ZOIO MERMAO"
+}
