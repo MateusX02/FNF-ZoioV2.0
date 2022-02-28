@@ -8,7 +8,6 @@ import flixel.FlxSprite;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.util.FlxTimer;
 import flixel.math.FlxMath;
-import flixel.text.FlxText;
 
 import openfl.utils.Assets;
 import lime.utils.Assets as LimeAssets;
@@ -41,24 +40,21 @@ class LoadingState extends MusicBeatState
 		this.directory = directory;
 	}
 
-	var text:FlxText;
-
-	var jorgeTank:FlxSprite;
-
+	var funkay:FlxSprite;
 	var loadBar:FlxSprite;
 	override function create()
 	{
-		bg = new FlxSprite().loadGraphic(Paths.image('menuBG'));
-		bg.setGraphicSize(Std.int(bg.width * 0.8));
-		bg.antialiasing = ClientPrefs.globalAntialiasing;
-		bg.screenCenter(XY);
+		var bg:FlxSprite = new FlxSprite(0, 0).makeGraphic(FlxG.width, FlxG.height, 0xffcaff4d);
 		add(bg);
+		funkay = new FlxSprite(0, 0).loadGraphic(Paths.getPath('images/funkay.png', IMAGE));
+		funkay.setGraphicSize(0, FlxG.height);
+		funkay.updateHitbox();
+		funkay.antialiasing = ClientPrefs.globalAntialiasing;
+		add(funkay);
+		funkay.scrollFactor.set();
+		funkay.screenCenter();
 
-		text = new FlxText(0, 0, 0, "CARREGANDO...", 48);
-		text.screenCenter();
-		add(text);
-
-		loadBar = new FlxSprite(0, FlxG.height - 20).makeGraphic(FlxG.width, 10, 0xfffc7b03);
+		loadBar = new FlxSprite(0, FlxG.height - 20).makeGraphic(FlxG.width, 10, 0xffff16d2);
 		loadBar.screenCenter(X);
 		loadBar.antialiasing = ClientPrefs.globalAntialiasing;
 		add(loadBar);
@@ -117,6 +113,13 @@ class LoadingState extends MusicBeatState
 	override function update(elapsed:Float)
 	{
 		super.update(elapsed);
+		funkay.setGraphicSize(Std.int(0.88 * FlxG.width + 0.9 * (funkay.width - 0.88 * FlxG.width)));
+		funkay.updateHitbox();
+		if(controls.ACCEPT)
+		{
+			funkay.setGraphicSize(Std.int(funkay.width + 60));
+			funkay.updateHitbox();
+		}
 
 		if(callbacks != null) {
 			targetShit = FlxMath.remapToRange(callbacks.numRemaining / callbacks.length, 1, 0, 0, 1);
@@ -158,6 +161,7 @@ class LoadingState extends MusicBeatState
 		Paths.setCurrentLevel(directory);
 		trace('Setting asset folder to ' + directory);
 
+		#if NO_PRELOAD_ALL
 		var loaded:Bool = false;
 		if (PlayState.SONG != null) {
 			loaded = isSoundLoaded(getSongPath()) && (!PlayState.SONG.needsVoices || isSoundLoaded(getVocalPath())) && isLibraryLoaded("shared") && isLibraryLoaded(directory);
@@ -165,13 +169,14 @@ class LoadingState extends MusicBeatState
 		
 		if (!loaded)
 			return new LoadingState(target, stopMusic, directory);
-
+		#end
 		if (stopMusic && FlxG.sound.music != null)
 			FlxG.sound.music.stop();
 		
 		return target;
 	}
-
+	
+	#if NO_PRELOAD_ALL
 	static function isSoundLoaded(path:String):Bool
 	{
 		return Assets.cache.hasSound(path);
@@ -181,6 +186,7 @@ class LoadingState extends MusicBeatState
 	{
 		return Assets.getLibrary(library) != null;
 	}
+	#end
 	
 	override function destroy()
 	{
