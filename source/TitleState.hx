@@ -48,7 +48,7 @@ class TitleState extends MusicBeatState
 
 	var wackyImage:FlxSprite;
 
-	var easterEggEnabled:Bool = true; //Disable this to hide the easter egg
+	var easterEggEnabled:Bool = false; //Disable this to hide the easter egg
 	var easterEggKeyCombination:Array<FlxKey> = [FlxKey.B, FlxKey.B]; //bb stands for bbpanzu cuz he wanted this lmao
 	var lastKeysPressed:Array<FlxKey> = [];
 
@@ -325,9 +325,9 @@ class TitleState extends MusicBeatState
 				new FlxTimer().start(1, function(tmr:FlxTimer)
 				{
 					if (mustUpdate) {
-						MusicBeatState.switchState(new MainMenuState());
+						MusicBeatState.switchState(new FlashingState());
 					} else {
-						MusicBeatState.switchState(new MainMenuState()); //lol
+						MusicBeatState.switchState(new FlashingState());
 					}
 					closedState = true;
 				});
@@ -446,7 +446,7 @@ class TitleState extends MusicBeatState
 			switch (curBeat)
 			{
 				case 1:
-					createCoolText(['Psych Engine by'], 45);
+					createCoolText(['Psych Engine por'], 45);
 				// credTextShit.visible = true;
 				case 3:
 					addMoreText('Shadow Mario', 45);
@@ -461,12 +461,8 @@ class TitleState extends MusicBeatState
 				case 5:
 					createCoolText(['VS. Zoio por'], -60);
 				case 7:
-					addMoreText('APERTE BACKSPACE PARA VER OS CREDITOS', -60);
-					if (controls.BACK)
-						{
-							FlxG.sound.play(Paths.sound('confirmMenu'));
-							MusicBeatState.switchState(new CreditsState());
-						}
+					addMoreText('Entra nos creditos :)', -60); //Chamoy
+					addMoreText('E no Discord!') //glgogloglggolgoblolgolgvloglv
 					logoSpr.visible = true;
 				// credTextShit.text += '\nNewgrounds';
 				case 8:

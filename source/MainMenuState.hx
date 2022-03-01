@@ -25,9 +25,8 @@ using StringTools;
 
 class MainMenuState extends MusicBeatState
 {
-	//https://www.youtube.com/watch?v=PLfE3Vu_Q3c&ab_channel=JackoCD (Tutorial de como editar menu)
-	public static var zoioVersion:String = '3.0'; //This is also used for Discord RPC
-	public static var psychEngineVersion:String = '0.4.2'; //This is also used for Discord RPC
+	public static var zoioVersion:String = '3.0-devs'; //Well well well
+	public static var psychEngineVersion:String = '0.4.2'; 
 	public static var curSelected:Int = 0;
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
@@ -44,7 +43,7 @@ class MainMenuState extends MusicBeatState
 	{
 		#if desktop
 		// Updating Discord Rich Presence
-		DiscordClient.changePresence("In the Menus", null);
+		DiscordClient.changePresence("NOS MENUS", null);
 		#end
 
 		camGame = new FlxCamera();
@@ -61,7 +60,7 @@ class MainMenuState extends MusicBeatState
 		persistentUpdate = persistentDraw = true;
 
 		var yScroll:Float = Math.max(0.25 - (0.05 * (optionShit.length - 4)), 0.1);
-		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('menuBG'));
+		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('bgZoi'));
 		bg.scrollFactor.set(0, yScroll);
 		bg.setGraphicSize(Std.int(bg.width * 1.175));
 		bg.updateHitbox();
@@ -87,11 +86,9 @@ class MainMenuState extends MusicBeatState
 
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
-
-		if (FlxG.keys.justPressed.U)
-			{
-				MusicBeatState.switchState(new EasterEggState());
-			}
+		
+		// Homenagem a Ucrânia removido
+		// Colocarei nos assets do jogo.
 
 		for (i in 0...optionShit.length)
 		{
@@ -117,7 +114,7 @@ class MainMenuState extends MusicBeatState
 
 		var versionShit:FlxText = new FlxText(12, FlxG.height - 64, 0, "Zoioness v" + zoioVersion, 12);
 		versionShit.scrollFactor.set();
-		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.GREEN, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.WHITE);
+		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
 		var versionShit:FlxText = new FlxText(12, FlxG.height - 44, 0, "Psych Engine v" + psychEngineVersion, 12);
 		versionShit.scrollFactor.set();
@@ -219,8 +216,8 @@ class MainMenuState extends MusicBeatState
 										MusicBeatState.switchState(new StoryMenuState());
 									case 'freeplay':
 										MusicBeatState.switchState(new FreeplayState());
-									case 'awards':
-										MusicBeatState.switchState(new AchievementsMenuState());
+									//case 'awards':
+										//MusicBeatState.switchState(new AchievementsMenuState()); //bruh somente nao
 									case 'credits':
 										MusicBeatState.switchState(new CreditsState());
 									case 'options':
@@ -231,11 +228,12 @@ class MainMenuState extends MusicBeatState
 					});
 				}
 			}
-			else if (FlxG.keys.justPressed.SEVEN)
+			else if (FlxG.keys.justPressed.SEVEN) //Solucao burra
 				{
 					selectedSomethin = true;
-					MusicBeatState.switchState(new MasterEditorMenu());	
+					MusicBeatState.switchState(new MasterEditorMenu());
 				}
+			}
 
 		super.update(elapsed);
 
