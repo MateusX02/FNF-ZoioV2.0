@@ -462,7 +462,7 @@ class TitleState extends MusicBeatState
 					createCoolText(['VS. Zoio por'], -60);
 				case 7:
 					addMoreText('Entra nos creditos :)', -60); //Chamoy
-					addMoreText('E no Discord!') //glgogloglggolgoblolgolgvloglv
+					addMoreText('E no Discord!', -60); //glgogloglggolgoblolgolgvloglv
 					logoSpr.visible = true;
 				// credTextShit.text += '\nNewgrounds';
 				case 8:
