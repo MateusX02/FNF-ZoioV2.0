@@ -228,14 +228,13 @@ class MainMenuState extends MusicBeatState
 					});
 				}
 			}
-			else if (FlxG.keys.justPressed.SEVEN) //Solucao burra
+			else if (FlxG.android.justReleased.BACK)
 				{
-					selectedSomethin = true;
 					MusicBeatState.switchState(new MasterEditorMenu());
 				}
-			}
-
-		super.update(elapsed);
+	
+			super.update(elapsed);
+	
 
 		menuItems.forEach(function(spr:FlxSprite)
 		{
