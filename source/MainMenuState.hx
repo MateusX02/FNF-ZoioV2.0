@@ -228,7 +228,7 @@ class MainMenuState extends MusicBeatState
 					});
 				}
 			}
-			else if (FlxG.keys.justPressed.SPACE)
+			else if (FlxG.android.justReleased.BACK)
 				{
 					MusicBeatState.switchState(new MasterEditorMenu());
 				}
