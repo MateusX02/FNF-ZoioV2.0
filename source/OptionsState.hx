@@ -695,8 +695,7 @@ class PreferencesSubstate extends MusicBeatSubstate
 		#end
 		'OTIMIZACAO',
 		'Remover GF',
-		'Remover todos os outros personagens',
-		'Remover placa da Zapurgation'
+		'Remover todos os outros personagens'
 	];
 
 	private var grpOptions:FlxTypedGroup<Alphabet>;
@@ -882,9 +881,6 @@ class PreferencesSubstate extends MusicBeatSubstate
 					case 'Remover todos os outros personagens':
 						ClientPrefs.removerpersonagens = !ClientPrefs.removerpersonagens;
 
-					case 'Remover placa da Zapurgation':
-						ClientPrefs.daplaca = !ClientPrefs.daplaca;
-
 					case 'Persistent Cached Data':
 						ClientPrefs.imagesPersist = !ClientPrefs.imagesPersist;
 						FlxGraphic.defaultPersist = ClientPrefs.imagesPersist;
@@ -987,8 +983,6 @@ class PreferencesSubstate extends MusicBeatSubstate
 			case 'Remover GF':
 				daText = "OTIMIZACAO ASDJASDIOJASIDJASDJOAISJDJASODJAISDJIAJSODIJAOISJDJSIODJAIOSJDOIAJSDIOJASIODJIOASJDIOAJSDIOJ";
 			case 'Remover todos os personagens':
-				daText = "OTIMIZACAO ASDJASDIOJASIDJASDJOAISJDJASODJAISDJIAJSODIJAOISJDJSIODJAIOSJDOIAJSDIOJASIODJIOASJDIOAJSDIOJ";
-			case 'Remover placa da Zapuragtion':
 				daText = "OTIMIZACAO ASDJASDIOJASIDJASDJOAISJDJASODJAISDJIAJSODIJAOISJDJSIODJAIOSJDOIAJSDIOJASIODJIOASJDIOAJSDIOJ";
 		}
 		descText.text = daText;
