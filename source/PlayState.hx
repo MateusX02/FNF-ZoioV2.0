@@ -249,25 +249,11 @@ class PlayState extends MusicBeatState
 
 	override public function create()
 	{
+		// Precache removido por precaução e erros de build.
+		
 		#if MODS_ALLOWED
         Paths.destroyLoadedImages(resetSpriteCache);
-#end
-        if (SONG.song.toLowerCase() == 'zapurgation') //Matheus Silver android ports gambiarras
-            {
-                Sign_Post.frames = Paths.getSparrowAtlas('Sign_Post');
-                Sign_Post.animation.addByPrefix('Sign_Post1', 'Signature Stop Sign 1', 24, false);
-                Sign_Post.animation.addByPrefix('Sign_Post2', 'Signature Stop Sign 2', 24, false);
-                Sign_Post.animation.addByPrefix('Sign_Post3', 'Signature Stop Sign 3', 24, false);
-                Sign_Post.animation.addByPrefix('Sign_Post4', 'Signature Stop Sign 4', 24, false);
-                Sign_Post.animation.addByPrefix('Sign_Post5', 'Signature Stop Sign 5', 24, false);
-                add(Sign_Post);
-                Sign_Post.animation.play('Sign_Post1');
-                Sign_Post.animation.play('Sign_Post2');
-                Sign_Post.animation.play('Sign_Post3');
-                Sign_Post.animation.play('Sign_Post4');
-                Sign_Post.animation.play('Sign_Post5');
-                remove(Sign_Post);
-        } 
+		#end	
 
         resetSpriteCache = false;
 
