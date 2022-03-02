@@ -1,0 +1,12 @@
+Falta fazer a mecânica da Placa Invisivel na Zapurgation
+Mecânica de precache melhor em arquivos muito pesados
+Uma tela de carregamento melhor e com mais funções
+Tirar lag das músicas
+Trabalhar no port mobile
+
+ESTATÍSTICAS:
+menu usando 1.2 gb de ram
+Hellek usando 1.2 gb de ram
+Zapurgation usando 1.6 gb de ram
+Cigarro outset 1.8 gb ram
+Alekness 1.7 gb ram 
