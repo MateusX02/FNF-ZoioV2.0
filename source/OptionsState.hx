@@ -90,13 +90,13 @@ class OptionsState extends MusicBeatState
 			}
 
 			switch(options[curSelected]) {
-				case 'Notes':
+				case 'Setas':
 					openSubState(new NotesSubstate());
 
-				case 'Controls':
+				case 'Controles':
 					openSubState(new ControlsSubstate());
 
-				case 'Preferences':
+				case 'Configuracoes':
 					openSubState(new PreferencesSubstate());
 			}
 		}
@@ -663,8 +663,9 @@ class PreferencesSubstate extends MusicBeatSubstate
 {
 	private static var curSelected:Int = 0;
 	static var unselectableOptions:Array<String> = [
-		'GRAPHICS',
-		'GAMEPLAY'
+		'GRAFICOS',
+		'GAMEPLAY',
+		'OTIMIZACAO'
 	];
 	static var noCheckbox:Array<String> = [
 		'Framerate',
@@ -688,10 +689,14 @@ class PreferencesSubstate extends MusicBeatSubstate
 		'Hide HUD',
 		'Hide Song Length',
 		'Flashing Lights',
-		'Camera Zooms'
+		'Camera Zooms',
 		#if !mobile
-		,'FPS Counter'
+		,'FPS Counter',
 		#end
+		'OTIMIZACAO',
+		'Remover GF',
+		'Remover todos os outros personagens',
+		'Remover placa da Zapurgation'
 	];
 
 	private var grpOptions:FlxTypedGroup<Alphabet>;
@@ -870,6 +875,15 @@ class PreferencesSubstate extends MusicBeatSubstate
 
 					case 'Hide HUD':
 						ClientPrefs.hideHud = !ClientPrefs.hideHud;
+
+					case 'Remover GF':
+						ClientPrefs.removergf = !ClientPrefs.removergf;
+
+					case 'Remover todos os outros personagens':
+						ClientPrefs.removerpersonagens = !ClientPrefs.removerpersonagens;
+
+					case 'Remover placa da Zapurgation':
+						ClientPrefs.daplaca = !ClientPrefs.daplaca;
 
 					case 'Persistent Cached Data':
 						ClientPrefs.imagesPersist = !ClientPrefs.imagesPersist;

@@ -26,6 +26,11 @@ class ClientPrefs {
 	public static var ghostTapping:Bool = true;
 	public static var hideTime:Bool = false;
 
+	// Sapato de cavalo
+	public static var removergf:Bool = false;
+	public static var removerpersonagens:Bool = false; // Incluindo a GF
+	public static var daplaca:Bool = false;
+
 	public static var defaultKeys:Array<FlxKey> = [
 		A, LEFT,			//Note Left
 		S, DOWN,			//Note Down
@@ -80,6 +85,10 @@ class ClientPrefs {
 		FlxG.save.data.imagesPersist = imagesPersist;
 		FlxG.save.data.ghostTapping = ghostTapping;
 		FlxG.save.data.hideTime = hideTime;
+
+		FlxG.save.data.removergf = removergf;
+		FlxG.save.data.removerpersonagens = removerpersonagens;
+		FlxG.save.data.daplaca = daplaca;
 
 		var achieves:Array<String> = [];
 		for (i in 0...Achievements.achievementsUnlocked.length) {
@@ -160,6 +169,15 @@ class ClientPrefs {
 		}
 		if(FlxG.save.data.hideTime != null) {
 			hideTime = FlxG.save.data.hideTime;
+		}
+		if(FlxG.save.data.removergf != null) {
+			removergf = FlxG.save.data.removergf;
+		}
+		if(FlxG.save.data.removerpersonagens != null) {
+			removerpersonagens = FlxG.save.data.removerpersonagens;
+		} 
+		if(FlxG.save.data.daplaca != null) {
+			daplaca = FlxG.save.data.daplaca;
 		}
 
 		var save:FlxSave = new FlxSave();
