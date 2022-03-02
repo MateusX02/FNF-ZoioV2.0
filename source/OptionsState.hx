@@ -984,6 +984,12 @@ class PreferencesSubstate extends MusicBeatSubstate
 				daText = "If checked, hides most HUD elements.";
 			case 'Hide Song Length':
 				daText = "If checked, the bar showing how much time is left\nwill be hidden.";
+			case 'Remover GF':
+				daText = "OTIMIZACAO ASDJASDIOJASIDJASDJOAISJDJASODJAISDJIAJSODIJAOISJDJSIODJAIOSJDOIAJSDIOJASIODJIOASJDIOAJSDIOJ";
+			case 'Remover todos os personagens':
+				daText = "OTIMIZACAO ASDJASDIOJASIDJASDJOAISJDJASODJAISDJIAJSODIJAOISJDJSIODJAIOSJDOIAJSDIOJASIODJIOASJDIOAJSDIOJ";
+			case 'Remover placa da Zapuragtion':
+				daText = "OTIMIZACAO ASDJASDIOJASIDJASDJOAISJDJASODJAISDJIAJSODIJAOISJDJSIODJAIOSJDOIAJSDIOJASIODJIOASJDIOAJSDIOJ";
 		}
 		descText.text = daText;
 
