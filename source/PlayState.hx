@@ -253,9 +253,27 @@ class PlayState extends MusicBeatState
 		
 		#if MODS_ALLOWED
         Paths.destroyLoadedImages(resetSpriteCache);
-		#end	
+#end
+        if (SONG.song.toLowerCase() == 'zapurgation') //Matheus Silver android ports gambiarras
+            {
+//Faltou definir a var
+                var sign_post:FlxSprite;
+                 sign_post.frames = Paths.getSparrowAtlas('Sign_Post');
+                 sign_post.animation.addByPrefix('Sign_Post1', 'Signature Stop Sign 1', 24, false);
+                 sign_post.animation.addByPrefix('Sign_Post2', 'Signature Stop Sign 2', 24, false);
+                 sign_post.animation.addByPrefix('Sign_Post3', 'Signature Stop Sign 3', 24, false);
+                 sign_post.animation.addByPrefix('Sign_Post4', 'Signature Stop Sign 4', 24, false);
+                 sign_post.animation.addByPrefix('Sign_Post5', 'Signature Stop Sign 5', 24, false);
+                add( sign_post);
+                 sign_post.animation.play('Sign_Post1');
+                 sign_post.animation.play('Sign_Post2');
+                 sign_post.animation.play('Sign_Post3');
+                 sign_post.animation.play('Sign_Post4');
+                 sign_post.animation.play('Sign_Post5');
+                remove(sign_post);
+        } 
 
-        resetSpriteCache = false;
+        resetSpriteCache = false; 
 
 		if (FlxG.sound.music != null)
 			FlxG.sound.music.stop();
