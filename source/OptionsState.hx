@@ -690,9 +690,7 @@ class PreferencesSubstate extends MusicBeatSubstate
 		'Hide Song Length',
 		'Flashing Lights',
 		'Camera Zooms',
-		#if !mobile
-		,'FPS Counter',
-		#end
+		'FPS Counter',
 		'OTIMIZACAO',
 		'Remover GF',
 		'Remover todos os outros personagens'
