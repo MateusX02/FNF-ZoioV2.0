@@ -691,7 +691,7 @@ class PreferencesSubstate extends MusicBeatSubstate
 		'Flashing Lights',
 		'Camera Zooms',
 		#if !mobile
-		,'FPS Counter',
+		'FPS Counter',
 		#end
 		'OTIMIZACAO',
 		'Remover GF',
