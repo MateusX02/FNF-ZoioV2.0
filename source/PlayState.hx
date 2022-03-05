@@ -220,7 +220,6 @@ class PlayState extends MusicBeatState
 	public static var campaignMisses:Int = 0;
 	public static var seenCutscene:Bool = false;
 	public static var deathCounter:Int = 0;
-	public static var sign_post:FlxSprite;
 
 	public var defaultCamZoom:Float = 1.05;
 
@@ -250,7 +249,6 @@ class PlayState extends MusicBeatState
 
 	override public function create()
 	{
-		// Precache removido por precaução e erros de build.
 		
 		#if MODS_ALLOWED
         Paths.destroyLoadedImages(resetSpriteCache);
@@ -2016,25 +2014,6 @@ class PlayState extends MusicBeatState
 			DiscordClient.changePresence("Chart Editor", null, null, true);
 			#end
 		}
-
-		if (SONG.song.toLowerCase() == 'zapurgation') //Matheus Silver android ports gambiarras
-            {
-		//Faltou definir a var
-                
-                 sign_post.frames = Paths.getSparrowAtlas('Sign_Post');
-                 sign_post.animation.addByPrefix('Sign_Post1', 'Signature Stop Sign 1', 24, false);
-                 sign_post.animation.addByPrefix('Sign_Post2', 'Signature Stop Sign 2', 24, false);
-                 sign_post.animation.addByPrefix('Sign_Post3', 'Signature Stop Sign 3', 24, false);
-                 sign_post.animation.addByPrefix('Sign_Post4', 'Signature Stop Sign 4', 24, false);
-                 sign_post.animation.addByPrefix('Sign_Post5', 'Signature Stop Sign 5', 24, false);
-                add( sign_post);
-                 sign_post.animation.play('Sign_Post1');
-                 sign_post.animation.play('Sign_Post2');
-                 sign_post.animation.play('Sign_Post3');
-                 sign_post.animation.play('Sign_Post4');
-                 sign_post.animation.play('Sign_Post5');
-                remove(sign_post);
-        } 
 
 		// FlxG.watch.addQuick('VOL', vocals.amplitudeLeft);
 		// FlxG.watch.addQuick('VOLRight', vocals.amplitudeRight);
